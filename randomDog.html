@@ -4,28 +4,76 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="lux.css">
+    <link rel="stylesheet" href="lux.css"> <!-- Text Font Style Sheet -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> <!-- Jquery -->
+    <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <title>Random Dog Generator</title>
 </head>
 <body>
     <header>
+        <!-- Navigation bar -->
         <nav class="nav nav-masthead justify-content-center">
             <a class="nav-link active" href="index.html">Home</a>
             <a class="nav-link" href="about.html">About</a>
             <a class="nav-link" href="contact.html">Contact</a>
           </nav> 
     </header>
+    <!-- Page header -->
     <section class="jumbotron text-center">
         <div class="container">
-            <h1 class="jumbotron-heading">Random Dog Generator</h1>
-            <p class="lead text-muted">Random Dog Generator description</p>
+            <h1 class="jumbotron-heading">Random Dog Viewer</h1>
+            <p class="lead text-muted">Click the button to generate new pictures of random dogs!</p>
             <p>
-                <a href="#" class="btn btn-secondary my-2">Github</a>
-                <a href="#" class="btn btn-primary my-2">Resume</a>
-                <a href="#" class="btn btn-secondary my-2">LinkedIn</a>
+                <a href="https://github.com/jrbmercado" target="_blank" class="btn btn-secondary my-2">Github</a>
+                <a href="#" class="btn btn-primary my-2">Resume</a> <!-- TODO -->
+                <a href="https://www.linkedin.com/in/jrbmercado/" target="_blank" class="btn btn-secondary my-2">LinkedIn</a>
             </p>
         </div>
     </section>
+    <!-- Dog Gallery and Generate Button -->
+    <div class="container">
+        <!-- Generate button -->
+        <div class="row mb-3">
+            <button type="button" onclick="refreshDogs();">Refresh Dog Photos</button><br></div>
+        <!-- Gallery -->
+        <div class="row">
+            <!-- Row 1-->
+            <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+            <img class="w-100 shadow-1-strong rounded mb-4" alt="" id="dogIconR1.1"/>
+            <img class="w-100 shadow-1-strong rounded mb-4" alt="" id="dogIconR1.2"/></div>
+            <!-- Row 2 -->
+            <div class="col-lg-4 mb-4 mb-lg-0">
+            <img class="w-100 shadow-1-strong rounded mb-4" alt="" id="dogIconR2.1"/>
+            <img class="w-100 shadow-1-strong rounded mb-4" alt="" id="dogIconR2.2"/></div>
+            <!-- Row 3 -->
+            <div class="col-lg-4 mb-4 mb-lg-0">
+            <img class="w-100 shadow-1-strong rounded mb-4" alt="" id="dogIconR3.1"/>
+            <img class="w-100 shadow-1-strong rounded mb-4" alt="" id="dogIconR3.2"/></div>
+        </div>
+        <!-- API GET Request -->
+        <script>
+            var urlList = [] // Array to store a list of urls from API
+            function randomizeList(){ // Fills URL array with random urls of dogs from API
+                for(i=0; i<6;i++){ // Generates 6 urls for our 6 image areas
+                    $.getJSON("https://random.dog/woof.json?include=jpg", function(data){ 
+                    urlList.push(data.url); // Add url from API's returned JSON to the list of URL's
+                    });
+                }
+            }
+            function refreshDogs(){ // Called on when button is pressed
+                randomizeList(); // Generates a new list of URL's
+                // Then assigns each image element's source to url at index inside of urlList array.
+                document.getElementById("dogIconR1.1").src=urlList[0];
+                document.getElementById("dogIconR1.2").src=urlList[1];
+                document.getElementById("dogIconR2.1").src=urlList[2];
+                document.getElementById("dogIconR2.2").src=urlList[3];
+                document.getElementById("dogIconR3.1").src=urlList[4];
+                document.getElementById("dogIconR3.2").src=urlList[5];
+                urlList=[]; // Empty URL list to be used next time.
+            }
+            randomizeList(); // Create initial list of URL's
+        </script>
+    </div>
     </body>
 </html>
