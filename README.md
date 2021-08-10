@@ -1,5 +1,5 @@
-# API Collection
-A collection of mini applications that uses different API's to provide services.
+# jrbmercado.com Website Source Code
+The source code that is running my portfolio website.
 
 ## Featured Applications
 
@@ -15,12 +15,3 @@ Output: <br> ![exampleQR_25](https://user-images.githubusercontent.com/60119119/
 ### Random Dog Picture Viewer
 Click on a button to get a new picture or gif of a random dog on the internet. This generator sends a request to the API, processes the returned JSON and updates the image html element.<br>
 API Documentation: https://github.com/AdenFlorian/random.dog<br>
-
-### Pirate Talk
-Enter english text into the text area. Then after clicking the Translate button, the website will translate certain words into pirate phrases.
-
-<!-- Example for Pirate Talk -->
-<i>English: Hello! This is a test of the pirate talk program. My friends are eating at the restaurant while I am at the bank.<br><br>
-Pirate: Ahoy! This be a test of th' pirate talk program. Me friends are eating at th' galley while I am at th' buried trasure.</i>
-
-
