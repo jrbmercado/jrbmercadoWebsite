@@ -1,4 +1,4 @@
-# jrbmercado.com Website Source Code
+# jrbmercado.com Website Source Code - Version 1.0
 The source code that is running my portfolio website.
 
 ## Featured Applications
