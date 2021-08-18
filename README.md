@@ -1,4 +1,4 @@
-# jrbmercado.com Website Source Code - Version 1.1
+# jrbmercado.com Website Source Code - Version 2.0
 The source code that is running my portfolio website.<br>
 https://www.jrbmercado.com/
 
