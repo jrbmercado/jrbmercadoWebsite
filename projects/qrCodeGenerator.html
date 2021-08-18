@@ -39,10 +39,45 @@
       </nav>
         <!-- Page Content  -->
       <div id="content" class="p-4 p-md-5 pt-5">
-        <h2 class="mb-4">QR Code Generator Title</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      </div>
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <h2 class="mb-4">QR Code Generator Title</h2>
+              <p class="lead text-muted">Generate your own scannable QR code here!</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <label>Your URL here: </label>
+              <input type="text" id="urlPrompt" placeholder="https://www.google.com/" size="55"></textarea> <!-- Text box for URL -->
+              <br> 
+              <script type="text/javascript" src="../js/qrCodeGenerator.js"></script> <!-- Source Javascript for QR Generator -->
+              <div class="d-flex justify-content-center pb-4 pt-4">
+                <button onclick="generateQR();">Generate QR Code</button> <!-- Submit button for generating QR Code -->
+              </div>
+              <div class="list-group">
+                <!-- When buttons are clicked, they fill the urlPrompt with url -->
+                <h6 class="mb-1">Try some common links</h5>
+                <button type="button" onclick="fillText('https://www.youtube.com/');" class="list-group-item list-group-item-action">Youtube</button>
+                <button type="button" onclick="fillText('https://en.wikipedia.org/wiki/Main_Page');" class="list-group-item list-group-item-action">Wikipedia</button>
+                <button type="button" onclick="fillText('https://github.com/jrbmercado');" class="list-group-item list-group-item-action">My Github</button>
+                <button type="button" onclick="fillText('https://www.linkedin.com/in/jrbmercado/');" class="list-group-item list-group-item-action">My LinkedIn</button>
+              </div>
+              <!-- Logic for filling text field with sample url -->
+              <script> 
+                  function fillText(sampleURL){
+                      document.getElementById("urlPrompt").value=sampleURL;
+                  }
+              </script>
+            </div>
+            <div class="col-md-6">
+              <img id="qrImageBox" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" class="rounded" /> 
+            </div>
+          </div>
+        </div>
+        
+      </div>  
+      
 		</div>
     
     <script src="../js/jquery.min.js"></script>
